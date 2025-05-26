@@ -1,6 +1,7 @@
 from logging.config import fileConfig
 from sqlalchemy import engine_from_config, pool
 from alembic import context
+from config.settings import settings  # Import settings từ config.py
 from models.models import Base  # Import Base từ models.py
 
 # this is the Alembic Config object, which provides
@@ -16,7 +17,7 @@ target_metadata = Base.metadata
 
 # other values from the config, defined by the needs of env.py
 def run_migrations_offline():
-    url = config.get_main_option("sqlalchemy.url")
+    url = config.get_main_option("sqlalchemy.url",settings.DATABASE_URL)
     context.configure(
         url=url,
         target_metadata=target_metadata,

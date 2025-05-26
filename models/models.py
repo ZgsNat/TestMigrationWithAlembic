@@ -13,4 +13,3 @@ class User(Base):
     updated_at = Column(DateTime, nullable=True)
     age = Column(Integer, nullable=True)
     address = Column(String(255), nullable=True)
-    phone_number = Column(String(20), nullable=True)
