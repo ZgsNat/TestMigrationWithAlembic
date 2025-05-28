@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker
-from models.models import Base,User
+from models import Base,User
 from config.settings import settings
 from sqlalchemy.exc import DatabaseError, IntegrityError, OperationalError
 
