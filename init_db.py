@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker
-from models import Base,User
-from config.settings import settings
+from src.domain.entities.models import Base,User
+from src.infrastructure.config.settings import settings
 from sqlalchemy.exc import DatabaseError, IntegrityError, OperationalError
 
 def create_database():

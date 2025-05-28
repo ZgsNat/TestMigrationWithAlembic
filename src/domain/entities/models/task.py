@@ -1,7 +1,6 @@
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Enum
-from models.base import Base, TimestampMixin
-from enumeration.definition.taskStatus import TaskStatus  # Assuming you have an enum for task status
-
+from src.domain.entities.models.base import Base, TimestampMixin
+from src.domain.entities.common.enumeration.definition.taskStatus import TaskStatus  # Adjust the import path as necessary
 class Task(TimestampMixin,Base):
     __tablename__ = 'tasks'
     title = Column(String(100), nullable=False)
