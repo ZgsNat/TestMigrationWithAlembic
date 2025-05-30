@@ -12,7 +12,7 @@ class Settings(BaseSettings):
     ALGORITHM: str
     ACCESS_TOKEN_EXPIRE_MINUTES: int
     PROJECT_NAME: str
-
+    ROUTE_PREFIX: str = "/api/v1"
     @property
     def SERVER_DATABASE_URL(self):
         return f"{self.DB}://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOST}:{self.DB_PORT}"

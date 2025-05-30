@@ -29,7 +29,7 @@ class AppCreator:
         )
 
     def setup_routes(self):
-        self.app.include_router(api_v1_router, prefix="/api/v1")
+        self.app.include_router(api_v1_router, prefix=settings.ROUTE_PREFIX)
 
     def get_app(self):
         return self.app

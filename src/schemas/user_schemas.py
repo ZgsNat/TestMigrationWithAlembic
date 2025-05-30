@@ -22,7 +22,7 @@ class UserRead(UserBase):
     updated_at: Optional[datetime] = None
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class UserUpdate(BaseModel):
     username: str
