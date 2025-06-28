@@ -1,0 +1,28 @@
+# Sử dụng một image Python base
+FROM python:3.9-slim-buster
+
+# Đặt thư mục làm việc trong container
+WORKDIR /app
+
+# Sao chép file requirements.txt vào thư mục làm việc
+# Điều này giúp tận dụng Docker cache nếu requirements không thay đổi
+COPY requirements.txt .
+
+# Cài đặt các dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Sao chép toàn bộ mã nguồn của ứng dụng vào thư mục làm việc
+# Tạo file .dockerignore để bỏ qua các thư mục không cần thiết (ví dụ: venv, .git, test)
+COPY . .
+
+# Expose cổng mà FastAPI sẽ chạy (mặc định là 8000)
+EXPOSE 8000
+
+# Lệnh để chạy ứng dụng bằng Uvicorn
+# src.main:app chỉ ra rằng Uvicorn sẽ tìm biến 'app' trong module 'src.main'
+# Sử dụng --host 0.0.0.0 để ứng dụng có thể truy cập được từ bên ngoài container
+# Loại bỏ --reload khi chuyển sang môi trường production
+CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000"]
+
+# Dành cho môi trường phát triển (development), bạn có thể dùng lệnh này và mount volume:
+# CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]

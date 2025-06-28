@@ -1,0 +1,73 @@
+# 1. Version control
+.git/
+.gitignore
+
+# 2. Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+
+# 3. Virtual environments
+venv/
+ENV/
+.env/
+.venv/
+
+# 4. Environment and secrets
+.env
+.env.*
+*.env
+*.pem
+*.key
+*.crt
+
+# 5. Development and IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 6. Build and distribution outputs
+dist/
+build/
+out/
+tmp/
+temp/
+*.tmp
+
+# 7. Test and debug artifacts
+test/
+tests/
+debug/
+*.log
+
+# 8. Documentation and project files
+docs/
+*.md
+README*
+
+# 9. Docker and compose files
+Dockerfile*
+docker-compose*
+Docker/
+
+# 10. Miscellaneous
+local/
+.local/
+config.local.*
+*.local.yml
+
+# 11. Alembic cache
+alembic/versions/__pycache__/
+alembic/__pycache__/
+
+# 12. src cache
+src/**/__pycache__/
+
+# 13. Ignore empty directories (if any)
+# (Docker does not copy empty dirs by default, but listing for clarity)
+
+# End of .dockerignore
